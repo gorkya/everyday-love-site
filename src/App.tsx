@@ -1,8 +1,7 @@
 
+import React, { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -10,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const Thoughts = React.lazy(() => import("./pages/Thoughts"));
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,7 +19,14 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/thoughts" element={<React.lazy(() => import('./pages/Thoughts'))()} />
+          <Route 
+            path="/thoughts" 
+            element={
+              <Suspense fallback={<div className="p-12 text-center">Загрузка...</div>}>
+                <Thoughts />
+              </Suspense>
+            } 
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -27,6 +34,5 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
-
 
 export default App;
