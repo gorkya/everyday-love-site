@@ -26,16 +26,18 @@ const Navbar = () => {
         </button>
 
         {/* Desktop menu */}
+        {/* Desktop menu */}
         <div className="hidden md:flex space-x-8 text-everyday-darkBrown">
           <Link to="/" className="hover:text-everyday-brown transition-colors">
             Главная
           </Link>
-          <Link to="/gallery" className="hover:text-everyday-brown transition-colors">
-            Галерея
+          <Link to="/books" className="hover:text-everyday-brown transition-colors">
+            Книги
           </Link>
           <Link to="/thoughts" className="hover:text-everyday-brown transition-colors">
             Размышления
           </Link>
+        </div>
         </div>
 
         {/* Mobile menu */}

@@ -16,10 +16,11 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route 
+          <Route path="/thoughts" element={<Suspense fallback={<div className="p-12 text-center">Загрузка...</div>}><Thoughts /></Suspense>} />
+          <Route path="/books" element={<Suspense fallback={<div className="p-12 text-center">Загрузка...</div>}><Books /></Suspense>} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             path="/thoughts" 
             element={
               <Suspense fallback={<div className="p-12 text-center">Загрузка...</div>}>
