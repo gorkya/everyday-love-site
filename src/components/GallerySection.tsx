@@ -15,7 +15,12 @@ interface GallerySectionProps {
   buttonLink: string;
 }
 
-const GallerySection = ({ title, images, buttonText, buttonLink }: GallerySectionProps) => {
+const GallerySection = ({
+  title,
+  images,
+  buttonText,
+  buttonLink,
+}: GallerySectionProps) => {
   return (
     <section className="py-16 px-6 md:px-12">
       <div className="container mx-auto max-w-6xl">
@@ -24,7 +29,7 @@ const GallerySection = ({ title, images, buttonText, buttonLink }: GallerySectio
         </h2>
         <ImageGallery images={images} />
         <div className="text-center mt-8">
-          <Link 
+          <Link
             to={buttonLink}
             className="inline-block px-6 py-3 bg-everyday-brown text-white rounded-md hover:bg-everyday-darkBrown transition-colors"
           >

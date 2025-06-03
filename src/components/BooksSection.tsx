@@ -10,12 +10,12 @@ interface BooksSectionProps {
   buttonLink: string;
 }
 
-const BooksSection = ({ 
-  title, 
-  description, 
-  books, 
-  buttonText, 
-  buttonLink 
+const BooksSection = ({
+  title,
+  description,
+  books,
+  buttonText,
+  buttonLink,
 }: BooksSectionProps) => {
   return (
     <section className="py-16 px-6 md:px-12 bg-everyday-cream">
@@ -29,15 +29,14 @@ const BooksSection = ({
         <p className="text-center text-everyday-brown max-w-2xl mx-auto mb-10">
           {description}
         </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {books.map((book, index) => (
-            <FeaturedBook key={index} book={book} />
+            <FeaturedBook key={index} {...book} />
           ))}
         </div>
-        
-        <div className="text-center mt-10">
-          <Link 
+        <div className="text-center">
+          <Link
             to={buttonLink}
             className="inline-block px-6 py-3 bg-everyday-brown text-white rounded-md hover:bg-everyday-darkBrown transition-colors"
           >
